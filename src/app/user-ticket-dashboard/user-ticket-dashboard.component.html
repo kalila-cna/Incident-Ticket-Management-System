@@ -1,0 +1,116 @@
+<div class="custom-shape-divider-top-1681140052">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+    </svg>
+  </div>
+  
+  <div class="top-left">
+    <span>User Ticket Dashboard.</span>
+  </div>
+
+  <div class="divide">
+  
+    <div class="main-div">
+      <mat-card class="card">
+        <mat-card-header>
+          <div style="text-align: center ;">
+            <mat-card-title class="title">RAISE TICKET</mat-card-title>
+          </div>
+        </mat-card-header>
+        <div class="logout">
+          <button mat-raised-button color="warn" (click)="logout()" style="width: 100px;">Log Out</button>
+        </div>
+
+        <mat-card-content>
+
+            <div >
+                <mat-form-field appearance="outline">
+                  <mat-label>User-Id</mat-label>
+                  <input matInput type="number" min="1" [(ngModel)]="user_id">
+                </mat-form-field>
+              </div>
+
+            <div>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                  <mat-label>Enter your email</mat-label>
+                  <mat-icon matPrefix>email</mat-icon>
+                  <input matInput placeholder="ex@example.com" [formControl]="email" [(ngModel)]="email_value" required>
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Title of ticket</mat-label>
+                  <input matInput type="text" [(ngModel)]="title">
+                </mat-form-field>
+              </div>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Priority</mat-label>
+                <mat-select [(ngModel)]="priority" >
+                  <mat-option value="high"> High </mat-option>
+                  <mat-option value="medium">Medium</mat-option>
+                  <mat-option value="low">Low</mat-option>
+                  
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Category</mat-label>
+                <mat-select [(ngModel)]="category" >
+                  <mat-option value="high"> Hardware </mat-option>
+                  <mat-option value="medium">Software</mat-option>
+                  <mat-option value="low">Network</mat-option>
+                  
+                </mat-select>
+              </mat-form-field>
+
+            
+
+              <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Describe the issues</mat-label>
+                    <textarea matInput type="text" [(ngModel)]="description"></textarea>
+                  </mat-form-field>
+              </div>
+
+
+    
+          
+    
+         
+        </mat-card-content>
+        <mat-card-actions>
+          <div style="display: flex;">
+            <div style="padding-right: 20px;margin-bottom: 20px;">
+              <button mat-raised-button color="primary" (click)="raise_ticket()">Raise Ticket</button>
+            </div>
+            <div style="padding-right: 20px;margin-bottom: 20px;">
+              <button mat-raised-button color="primary" (click)="check_status()">check status</button>
+            </div>
+            <div>
+              <span *ngIf="isCorrect; else wrongSymbol">&#10004;</span>
+              <ng-template #wrongSymbol>&#10008;</ng-template>
+              
+            </div>
+          </div>
+
+        </mat-card-actions>
+        
+        
+      </mat-card>
+    </div>
+  </div>
+  
+
+
+  
+  
+  
+    
+  
+  
+    
+    
+  
